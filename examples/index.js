@@ -1,20 +1,20 @@
 "use strict";
 
-var assert = require ("assert");
-var mod = require ("../lib");
+global.mod = require ("../lib");
 
 //A mark provides a relative point from which modules can be required
 mod.mark ({
-  "f": "d/e/f",
-  "mod2": "d/e/f/mod2"
+  api: "api/v1",
+  db: "db"
 });
 
-mod.load (__dirname + "/marks.json", function (error){
+var user = mod ("api/resources/user");
+
+user.create ({
+  username: "foo",
+  password: "bar",
+  email: "baz"
+}, function (error, user){
   if (error) return console.error (error);
-  
-  var mod1 = mod.get ("mod1");
-  assert.strictEqual (mod1, "mod2");
-  
-  //The module can be also loaded as usual from the current file's directory
-  assert.strictEqual (mod1, mod.get ("./a/b/c/mod1"));
+  console.log (user);
 });

@@ -9,7 +9,7 @@
     "node": ">=0.10"
   },
   "scripts": {
-    "test": "node examples/index"
+    "test": "node test"
   },
   "license": "MIT",
   "main": "lib"
