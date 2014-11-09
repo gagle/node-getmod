@@ -1,7 +1,8 @@
 "use strict";
 
-var assert = require ("assert");
-var mod = require ("../lib");
+global.mod = require ("../lib");
+
+var assert = mod ("assert");
 
 //A mark provides a relative point from which modules can be required
 mod.mark ({

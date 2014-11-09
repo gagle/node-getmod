@@ -1,7 +1,6 @@
 "use strict";
 
-var assert = require ("assert");
-var mod = require ("../../../../lib");
+var assert = mod ("assert");
 
 //Two different marks are configured, the module can be loaded relative to two
 //different points
