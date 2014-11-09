@@ -14,7 +14,7 @@ This is a common problem known by the Node.js community: [Better local require()
 
 The way this module avoids the relative paths is by using... relative paths that shorten the paths and make them relative from where you want. Think about it as marks, aliases, checkpoints, namespaces, etc.
 
-#### Mark over a directory ####
+#### Marking a directory ####
 
 Suppose you have this tree structure:
 
@@ -47,7 +47,7 @@ var f = mod ("my-mark/e/f/f.js");
 
 Instead of `my-mark`, name the mark as `d` and you'll have a very descriptive path: `mod("d/e/f/f.js")`.
 
-#### Mark over a file ####
+#### Marking a file ####
 
 Marks can also point to a file. For example, you have a module you'd like to load with a very short path because it's pretty important, like a module that tells the status of your server:
 
@@ -75,13 +75,60 @@ Now you can use `mod()` from anywhere in your app.
 #### Functions ####
 
 - [_module_(moduleName) : Any](#require)
+- [_module_.mark(marks) : undefined](#mark)
+- [_module_.resolve(moduleName) : String](#resolve)
 
 ---
 
 <a name="require"></a>
 ___module_(moduleName) : Any__
 
+Loads the module. It returns whatever is exported, just like the built-in `require()` function. Paths can be any of these:
 
+- Mark: `mod("my-mark/file.js")`
+- System path: `mod("./a/b/c/file.js")`
+- External module: `mod("express")`
+- Core module: `mod("fs")`
+
+If the module name is the same as any core module, the core module will be loaded, just the same behaviour as with external modules with the same name as a core module.
+
+<a name="mark"></a>
+___module_.mark(marks) : undefined__
+
+Configures relative paths. It takes the directory of the current file as the point from which the paths are relative. It can be called multiple times.
+
+```javascript
+//cwd = /foo/bar
+
+// ./app.js
+mod.mark ({
+  c: "a/b/c"
+});
+
+// ./random/path/app.js
+mod.mark ({
+  f: "d/e/f"
+});
+
+//Anywhere in your app
+mod.resolve ("c"); // /foo/bar/a/b/c
+mod.resolve ("f"); // /foo/bar/random/path/d/e/f
+```
+
+<a name="require"></a>
+___module_.resolve(moduleName) : String__
+
+Returns the absolute path of the module, just like the built-in `require()` function, but it also resolves modules names relative to marks.
+
+```javascript
+//cwd = /foo/bar
+
+mod.mark ({
+  a: "a/b/c.js"
+});
+
+mod.resolve ("c"); // /foo/bar/a/b/c.js
+```
 
 [npm-version-image]: http://img.shields.io/npm/v/getmod.svg
 [npm-install-image]: https://nodei.co/npm/getmod.png?mini=true
