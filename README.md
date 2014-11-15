@@ -10,9 +10,9 @@ getmod
 
 This module tries to solve and improve the module loading. In big projects it's very common to have `require()`s with relative paths like `require("../../../models/user");`. This is a mess for big projects. Furthermore, if you move or rename a directory or file, you need to modify each of these paths to point to the new location. The paths are relative from the current file, this is very portable but it's not scalable.
 
-This is a common problem known by the Node.js community: [Better local require() paths for Node.js][better-require]. There some solutions that seem to work but I personally dislike all of them, especially the one which uses the `node_modules` directory to store the modules of your app. My advice is to use `node_modules` only for external modules.
+This is a common problem known by the Node.js community: [Better local require() paths for Node.js][better-require]. There are some solutions that seem to work but I personally dislike all of them, especially the one which uses the `node_modules` directory to store the modules of your app. My advice is to use `node_modules` only for external modules.
 
-The way this module avoids the relative paths is by using... relative paths that shorten the paths and make them relative from where you want. Think about it as marks, aliases, checkpoints, namespaces, etc.
+The way this module avoids the relative paths is by using... relative paths that shorten the paths and make them relative from where you want. Think about them as marks, aliases, checkpoints, namespaces, etc.
 
 #### Marking a directory ####
 
@@ -66,7 +66,7 @@ var status = mod ("status");
 You can also use this library to load any file without marks and to load external and core modules. Therefore, you can completely replace the `require()` function like so:
 
 ```javascript
-//The very first line in the app entry point
+//The very first line in the entry point of your app
 global.mod = require ("getmod");
 ```
 
