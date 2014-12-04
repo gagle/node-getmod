@@ -1,6 +1,6 @@
 {
   "name": "getmod",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Module loader with aliases",
   "keywords": ["require", "module", "relative", "path", "alias"],
   "author": "Gabriel Llamas <gagle@outlook.com>",

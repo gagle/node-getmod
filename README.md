@@ -82,6 +82,7 @@ Now you can use `mod()` from anywhere instead of `require()`.
 - [_module_(moduleName) : Any](#require)
 - [_module_.mark(marks) : undefined](#mark)
 - [_module_.resolve(moduleName) : String](#resolve)
+- [_module_.resolveLoose(name) : String](#resolveLoose)
 
 ---
 
@@ -120,7 +121,7 @@ mod.resolve ("c"); // /foo/bar/a/b/c
 mod.resolve ("f"); // /foo/bar/random/path/d/e/f
 ```
 
-<a name="require"></a>
+<a name="resolve"></a>
 ___module_.resolve(moduleName) : String__
 
 Returns the absolute path of the module, just like the built-in `require()` function, but it also resolves marks.
@@ -133,6 +134,24 @@ mod.mark ({
 });
 
 mod.resolve ("file"); // /foo/bar/a/b/c/file.js
+```
+
+<a name="resolveLoose"></a>
+___module_.resolveLoose(name) : String__
+
+Same as `resolve()` but without any restrictions. The `name` can be anything including marks, even if the path doesn't exist it is still resolved.
+
+```javascript
+//cwd = /foo/bar
+
+mod.mark ({
+  file: "a/b/c/file.js"
+});
+
+mod.resolve ("file"); // /foo/bar/a/b/c/file.js
+mod.resolve ("./a/b/c/file"); // /foo/bar/a/b/c/file
+mod.resolve ("a/b/c/file"); // /foo/bar/a/b/c/file
+mod.resolve ("x/y"); // /foo/bar/x/y
 ```
 
 [npm-version-image]: http://img.shields.io/npm/v/getmod.svg

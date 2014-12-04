@@ -27,6 +27,16 @@ assert.strictEqual (mod ("assert"), assert);
 assert.strictEqual (mod.resolve ("."), __filename);
 assert.strictEqual (mod.resolve ("fs"), "fs");
 
+//Resolve for directories (mod.resolve() throws an error)
+var resolveLoosePathExists = __dirname + "/d/e/f".replace (/\//g, path.sep);
+assert.strictEqual (mod.resolveLoose ("f"), resolveLoosePathExists);
+assert.strictEqual (mod.resolveLoose ("./d/e/f"), resolveLoosePathExists);
+assert.strictEqual (mod.resolveLoose ("d/e/f"), resolveLoosePathExists);
+
+var resolveLoosePathNotExists = __dirname + "/x/y".replace (/\//g, path.sep);
+assert.strictEqual (mod.resolveLoose ("./x/y"), resolveLoosePathNotExists);
+assert.strictEqual (mod.resolveLoose ("x/y"), resolveLoosePathNotExists);
+
 //Marks with the same name as a core module are ignored
 assert.strictEqual (mod.resolve ("util"), "util");
 
