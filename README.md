@@ -151,7 +151,7 @@ mod.mark ({
 mod.resolveLoose ("file"); // /foo/bar/a/b/c/file.js
 mod.resolveLoose ("./a/b/c/file"); // /foo/bar/a/b/c/file
 mod.resolveLoose ("a/b/c/file"); // /foo/bar/a/b/c/file
-mod.resolveLoose ("x/y"); // /foo/bar/x/y
+mod.resolveLoose ("random/path"); // /foo/bar/random/path
 ```
 
 [npm-version-image]: http://img.shields.io/npm/v/getmod.svg
