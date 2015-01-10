@@ -5,8 +5,7 @@ getmod
 
 [![npm version][npm-version-image]][npm-url]
 [![Travis][travis-image]][travis-url]
-
-[![npm install][npm-install-image]][npm-url]
+[![Coveralls][coveralls-image]][coveralls-url]
 
 This module tries to solve and improve the module loading. It's very common to have `require()`'s with relative paths like `../../../foo/bar`.
 
@@ -166,9 +165,10 @@ mod.resolveLoose('a/b/c/file'); // /foo/bar/a/b/c/file
 mod.resolveLoose('random/path'); // /foo/bar/random/path
 ```
 
-[npm-version-image]: http://img.shields.io/npm/v/getmod.svg
-[npm-install-image]: https://nodei.co/npm/getmod.png?mini=true
+[npm-version-image]: http://img.shields.io/npm/v/getmod.svg?style=flat
 [npm-url]: https://npmjs.org/package/getmod
-[travis-image]: http://img.shields.io/travis/gagle/node-getmod.svg
+[travis-image]: http://img.shields.io/travis/gagle/node-getmod.svg?style=flat
 [travis-url]: https://travis-ci.org/gagle/node-getmod
+[coveralls-image]: https://img.shields.io/coveralls/gagle/node-getmod.svg?style=flat
+[coveralls-url]: https://coveralls.io/r/gagle/node-getmod
 [better-require]: https://gist.github.com/branneman/8048520
