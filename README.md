@@ -12,7 +12,7 @@ This module tries to solve and improve the module loading. It's very common to h
 
 This is a well-known problem known by the Node.js community: [Better local require() paths for Node.js][better-require]. There are some solutions that seem to work but I personally dislike most of them, especially the one which uses the `node_modules` directory to store the modules of your app. My advice is to only use `node_modules` for external modules, __never__ for storing you own modules.
 
-**I'm not going to use this module. This is just a proof of concept. The cleanest way to solve the relative paths is by prefixing the them with the `__root` variable. In fact, in my opinion Node.js should consider adding it, as it's perfectly aligned with the `__filename` and `__dirname` approach.**
+**I'm not going to use this module. This is just a proof of concept. The cleanest way to solve the relative paths is by prefixing them with the `__root` variable. In fact, in my opinion Node.js should consider adding it, as it's perfectly aligned with the `__filename` and `__dirname` approach.**
 
 The way this module avoids the relative paths is by using more relative paths that shorten the paths and make them relative from anywhere. Think about them as marks, aliases, checkpoints, etc.
 
