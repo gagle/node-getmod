@@ -165,9 +165,9 @@ mod.resolveLoose('a/b/c/file'); // /foo/bar/a/b/c/file
 mod.resolveLoose('random/path'); // /foo/bar/random/path
 ```
 
-[npm-version-image]: http://img.shields.io/npm/v/getmod.svg?style=flat
+[npm-version-image]: https://img.shields.io/npm/v/getmod.svg?style=flat
 [npm-url]: https://npmjs.org/package/getmod
-[travis-image]: http://img.shields.io/travis/gagle/node-getmod.svg?style=flat
+[travis-image]: https://img.shields.io/travis/gagle/node-getmod.svg?style=flat
 [travis-url]: https://travis-ci.org/gagle/node-getmod
 [coveralls-image]: https://img.shields.io/coveralls/gagle/node-getmod.svg?style=flat
 [coveralls-url]: https://coveralls.io/r/gagle/node-getmod
