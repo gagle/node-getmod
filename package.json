@@ -1,15 +1,26 @@
 {
   "name": "getmod",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Module loader with aliases",
-  "keywords": ["require", "module", "relative", "path", "alias"],
+  "keywords": [
+    "require",
+    "module",
+    "relative",
+    "path",
+    "alias",
+    "mark"
+  ],
   "author": "Gabriel Llamas <gagle@outlook.com>",
   "repository": "git://github.com/gagle/node-getmod.git",
   "engines": {
     "node": ">=0.10"
   },
+  "devDependencies": {
+    "code": "^1.2.1",
+    "lab": "^5.2.0"
+  },
   "scripts": {
-    "test": "node test"
+    "test": "node node_modules/lab/bin/lab test/index.js -t 100"
   },
   "license": "MIT",
   "main": "lib"
