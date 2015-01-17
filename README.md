@@ -3,9 +3,9 @@ getmod
 
 #### Module loader with aliases ####
 
-[![npm version][npm-version-image]][npm-url]
-[![Travis][travis-image]][travis-url]
-[![Coveralls][coveralls-image]][coveralls-url]
+[![npm][npm-image]][npm-url]
+[![travis][travis-image]][travis-url]
+[![coveralls][coveralls-image]][coveralls-url]
 
 This module tries to solve and improve the module loading. It's very common to have `require()`'s with relative paths like `../../../foo/bar`.
 
@@ -165,7 +165,7 @@ mod.resolveLoose('a/b/c/file'); // /foo/bar/a/b/c/file
 mod.resolveLoose('random/path'); // /foo/bar/random/path
 ```
 
-[npm-version-image]: https://img.shields.io/npm/v/getmod.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/getmod.svg?style=flat
 [npm-url]: https://npmjs.org/package/getmod
 [travis-image]: https://img.shields.io/travis/gagle/node-getmod.svg?style=flat
 [travis-url]: https://travis-ci.org/gagle/node-getmod
